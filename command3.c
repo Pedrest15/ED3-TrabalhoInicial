@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "command3.h"
 #include "open_close.h"
@@ -18,9 +19,8 @@ int record_position(FILE* file, int pos){
 
 
 void command_3(char* filename) {
-    FILE* file = fopen(filename, "rb");
+    FILE* file = open_file(filename, FILE_READB);
     if (file == NULL) {
-        open_error_msg();
         return;
     }
 
@@ -31,15 +31,8 @@ void command_3(char* filename) {
         return;
     }
 
-    //cria variaveis para cada campo de um registro
-    char Firstname[60];
-    char Lastname[60];
-    char Email[90];
-    char Nationality[60];
-    int Age;
-
     //imprime os campos do registro com o rrn lido
-    print_fileds(file, Firstname, Lastname, Email, Nationality, Age);
+    print_fileds(file);
 
     close_file(file); //fecha o arquivo usado
 }

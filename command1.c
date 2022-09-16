@@ -4,7 +4,7 @@
 #include "open_close.h"
 #include "funcoesFornecidas.h"
 
-//coloca o caracter de lixo no fim do campo
+//coloca o caracter de lixo no fim do campo se necessario
 void insert_garbage(char* input, int max_position) { 
     int i = 0;
     while(input[i] != '\0'){
@@ -27,11 +27,12 @@ void insert_garbage(char* input, int max_position) {
 }
 
 void command_1(char* filename) {
-    FILE* file = fopen(filename, "wb");
+    FILE* file = open_file(filename, FILE_WRITEB);
+    
     int num;
     scanf("%d", &num); //le do teclado quantos registros serao digitados
 
-    char input[120];
+    char input[90];
     int Age;
     for(int i = 0; i < num; i++) {
         //le o campo Firsname

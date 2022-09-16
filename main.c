@@ -17,17 +17,18 @@ int main(void) {
     switch (command)
     {
     case 1: // comando 1
-        filename[strlen(filename)-1] = '\0'; //coloca '/0' no fim da string
+        filename[strlen(filename)-1] = '\0'; //troca o \n por um \0
         command_1(filename); //executa o comando
         binarioNaTela(filename);
         break;
     
     case 2: // comando 2
+        // filename[strlen(filename)-1] = '\0'; //troca o \n por um \0
         command_2(filename); //executa o comando
         break;
 
     case 3: // comando 3
-        filename[strlen(filename)-1] = '\0'; //coloca '/0' no fim da string
+        filename[strlen(filename)-1] = '\0'; //troca o \n por um \0
         command_3(filename); //executa o comando
         break;
 

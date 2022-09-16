@@ -8,6 +8,6 @@ void open_error_msg();
 void rrn_error_msg();
 
 //imprime todos os campos do registro
-void print_fileds(FILE* file, char* Firstname, char* Lastname, char* Email, char* Nationality, int Age);
+void print_fileds(FILE* file);
 
 #endif
