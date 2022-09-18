@@ -18,11 +18,13 @@ void rrn_error_msg(){
     printf("Não foi possível ler o arquivo\n");
 }
 
-void print_fileds(FILE* file){
+int print_fileds(FILE* file){
 
     Person *person = malloc(sizeof(Person));
 
-    fread(person->Firstname, sizeof(char), 51, file);
+    if (!fread(person->Firstname, sizeof(char), 51, file)){
+        return -1; //fim do arquivo
+    }
     printf("Firstname: %s\n",person->Firstname);
 
     fread(person->Lastname, sizeof(char), 51, file);
@@ -38,4 +40,6 @@ void print_fileds(FILE* file){
     printf("Age: %d\n\n", person->Age);
 
     free(person);
+
+    return 0;
 }

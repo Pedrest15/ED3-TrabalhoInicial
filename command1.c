@@ -26,6 +26,12 @@ void insert_garbage(char* input, int max_position) {
     }
 }
 
+void write_string_file(FILE* file, char* input, int len){
+    readline(input);
+    insert_garbage(input, len);
+    fwrite(input, sizeof(char), len, file);
+}
+
 void command_1(char* filename) {
     FILE* file = open_file(filename, FILE_WRITEB);
     
@@ -35,27 +41,19 @@ void command_1(char* filename) {
     char input[90];
     int Age;
     for(int i = 0; i < num; i++) {
-        //le o campo Firsname
-        readline(input);  
-        insert_garbage(input, 51);
-        fwrite(input, sizeof(char), 51, file);
+        //le e grava o campo Firsname
+        write_string_file(file, input, 51);
 
-        //le o campo Lastname
-        readline(input);
-        insert_garbage(input, 51);
-        fwrite(input, sizeof(char), 51, file);
+        //le e grava o campo Lastname
+        write_string_file(file, input, 51);
         
-        //le o campo Email
-        readline(input);
-        insert_garbage(input, 81);
-        fwrite(input, sizeof(char), 81, file);
+        //le e grava o campo Email
+        write_string_file(file, input, 81);
     
-        //le o campo Nacionalidade
-        readline(input);
-        insert_garbage(input, 51);
-        fwrite(input, sizeof(char), 51, file);
+        //le e grava o campo Nacionalidade
+        write_string_file(file, input, 51);
     
-        //le o campo Age
+        //le e grava o campo Age
         scanf("%d", &Age);
         fwrite(&Age, sizeof(int), 1, file);
     }
